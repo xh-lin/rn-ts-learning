@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Button,
-  ScrollView,
+  FlatList,
   StyleSheet,
   Text,
   TextInput,
@@ -34,13 +34,23 @@ export default function App(): React.JSX.Element {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
+        {/* <ScrollView>
           {courseGoals.map((goal) => (
             <View style={styles.goalItem} key={goal}>
               <Text style={styles.goalText}>{goal}</Text>
             </View>
           ))}
-        </ScrollView>
+        </ScrollView> */}
+        <FlatList
+          data={courseGoals}
+          renderItem={(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item}</Text>
+              </View>
+            );
+          }}
+        />
       </View>
     </View>
   );
