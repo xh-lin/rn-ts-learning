@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "expo": "~50.0.2",
@@ -30,7 +31,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.2.4",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "husky": "^8.0.0"
   },
   "private": true
 }
