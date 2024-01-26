@@ -1,33 +1,22 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App(): React.JSX.Element {
   return (
-    <View style={styles.container}>
+    <View style={styles.appContainer}>
       <View>
-        <Text style={styles.dummyText}>Hello</Text>
+        <TextInput placeholder="Your course goal!" />
+        <Button title="Add Goal" />
       </View>
-      <Text
-        style={{ margin: 15, padding: 10, borderWidth: 3, borderColor: 'red' }}
-      >
-        World!
-      </Text>
-      <Button title="Tap me!" />
+      <View>
+        <Text>List of goals...</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dummyText: {
-    margin: 15,
-    padding: 10,
-    borderWidth: 3,
-    borderColor: 'red',
+  appContainer: {
+    paddingBottom: 50,
   },
 });
