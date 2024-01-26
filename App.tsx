@@ -5,9 +5,13 @@ export default function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <View>
-        <Text>Hello</Text>
+        <Text style={styles.dummyText}>Hello</Text>
       </View>
-      <Text>World!</Text>
+      <Text
+        style={{ margin: 15, padding: 10, borderWidth: 3, borderColor: 'red' }}
+      >
+        World!
+      </Text>
       <Button title="Tap me!" />
     </View>
   );
@@ -19,5 +23,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  dummyText: {
+    margin: 15,
+    padding: 10,
+    borderWidth: 3,
+    borderColor: 'red',
   },
 });
