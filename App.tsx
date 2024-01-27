@@ -13,6 +13,10 @@ export default function App(): JSX.Element {
     ]);
   }
 
+  function deleteGoalHandler(): void {
+    console.log('Deleting');
+  }
+
   return (
     <View style={styles.appContainer}>
       <GoalInput onAddGoal={addGoalHandler} />
@@ -20,7 +24,9 @@ export default function App(): JSX.Element {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item} />;
+            return (
+              <GoalItem text={itemData.item} onDeleteItem={deleteGoalHandler} />
+            );
           }}
         />
       </View>

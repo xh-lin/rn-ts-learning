@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 interface IGoalItemProps {
   text: string;
+  onDeleteItem: () => void;
 }
 
 export default function GoalItem(props: IGoalItemProps): JSX.Element {
   return (
-    <View style={styles.goalItem}>
-      <Text style={styles.goalText}>{props.text}</Text>
-    </View>
+    <Pressable onPress={props.onDeleteItem}>
+      <View style={styles.goalItem}>
+        <Text style={styles.goalText}>{props.text}</Text>
+      </View>
+    </Pressable>
   );
 }
 
