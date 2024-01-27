@@ -12,6 +12,7 @@ export default function GoalItem(props: IGoalItemProps): JSX.Element {
       <Pressable
         android_ripple={{ color: '#210644' }}
         onPress={props.onDeleteItem}
+        style={({ pressed }) => pressed && styles.pressedItem}
       >
         <Text style={styles.goalText}>{props.text}</Text>
       </Pressable>
@@ -28,5 +29,8 @@ const styles = StyleSheet.create({
   goalText: {
     color: 'white',
     padding: 8,
+  },
+  pressedItem: {
+    opacity: 0.5,
   },
 });
