@@ -4,6 +4,7 @@ import { Button, Modal, StyleSheet, TextInput, View } from 'react-native';
 interface IGoalInputProps {
   visible: boolean;
   onAddGoal: (arg0: string) => void;
+  onCancel: () => void;
 }
 
 export default function GoalInput(props: IGoalInputProps): JSX.Element {
@@ -32,7 +33,7 @@ export default function GoalInput(props: IGoalInputProps): JSX.Element {
             <Button title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" />
+            <Button title="Cancel" onPress={props.onCancel} />
           </View>
         </View>
       </View>
