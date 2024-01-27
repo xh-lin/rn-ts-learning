@@ -31,7 +31,7 @@ export default function GoalInput(props: IGoalInputProps): JSX.Element {
       <View style={styles.inputContainer}>
         <Image
           style={styles.image}
-          source={require('../../assets/images/goal.png')}
+          source={require('../assets/images/goal.png')}
         />
         <TextInput
           style={styles.textInput}
