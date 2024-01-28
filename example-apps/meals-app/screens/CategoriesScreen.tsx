@@ -5,9 +5,13 @@ import { type NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { CATEGORIES } from '../data/dummy-data';
 import type Category from '../models/category';
 import CategoryGridTile from '../components/CategoryGridTile';
+import { type NativeStackParamList } from '../MealsApp';
 
 interface ICategoriesScreenProps {
-  navigation: NativeStackNavigationProp<any>;
+  navigation: NativeStackNavigationProp<
+    NativeStackParamList,
+    'MealsCategories'
+  >;
 }
 
 export default function CategoriesScreen({
@@ -17,7 +21,9 @@ export default function CategoriesScreen({
     itemData: ListRenderItemInfo<Category>,
   ): JSX.Element {
     function pressHandler(): void {
-      navigation.navigate('MealsOverview');
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id,
+      });
     }
 
     return (

@@ -2,11 +2,19 @@ import React from 'react';
 import CategoriesScreen from './screens/CategoriesScreen';
 import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  type ParamListBase,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 
-const Stack = createNativeStackNavigator();
+export interface NativeStackParamList extends ParamListBase {
+  MealsCategories: undefined;
+  MealsOverview: { categoryId: string };
+}
+
+const Stack = createNativeStackNavigator<NativeStackParamList>();
 
 export default function MealsApp(): JSX.Element {
   return (

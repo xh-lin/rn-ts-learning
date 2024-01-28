@@ -1,12 +1,22 @@
 import React from 'react';
+import { type RouteProp } from '@react-navigation/native';
 
 // import { MEALS } from '../data/dummy-data';
 import { StyleSheet, Text, View } from 'react-native';
+import { type NativeStackParamList } from '../MealsApp';
 
-export default function MealsOverviewScreen(): JSX.Element {
+interface IMealsOverviewScreenProps {
+  route: RouteProp<NativeStackParamList, 'MealsOverview'>;
+}
+
+export default function MealsOverviewScreen({
+  route,
+}: IMealsOverviewScreenProps): JSX.Element {
+  const catId = route.params.categoryId;
+
   return (
     <View style={styles.container}>
-      <Text>Meals Overview Screen</Text>
+      <Text>Meals Overview Screen - {catId}</Text>
     </View>
   );
 }
