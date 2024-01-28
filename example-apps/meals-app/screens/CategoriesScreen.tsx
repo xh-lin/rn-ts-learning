@@ -1,17 +1,14 @@
 import React from 'react';
 import { FlatList, type ListRenderItemInfo } from 'react-native';
-import { type NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { CATEGORIES } from '../data/dummy-data';
 import type Category from '../models/category';
 import CategoryGridTile from '../components/CategoryGridTile';
-import { type NativeStackParamList } from '../MealsApp';
+import { Route } from '../enums/Route';
+import { type NavigationType } from '../navigation/NativeStackParamList';
 
 interface ICategoriesScreenProps {
-  navigation: NativeStackNavigationProp<
-    NativeStackParamList,
-    'MealsCategories'
-  >;
+  navigation: NavigationType<Route.MealsCategories>;
 }
 
 export default function CategoriesScreen({
@@ -21,7 +18,7 @@ export default function CategoriesScreen({
     itemData: ListRenderItemInfo<Category>,
   ): JSX.Element {
     function pressHandler(): void {
-      navigation.navigate('MealsOverview', {
+      navigation.navigate(Route.MealsOverview, {
         categoryId: itemData.item.id,
       });
     }

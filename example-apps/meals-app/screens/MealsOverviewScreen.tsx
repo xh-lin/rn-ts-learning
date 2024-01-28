@@ -1,12 +1,12 @@
 import React from 'react';
-import { type RouteProp } from '@react-navigation/native';
+import { StyleSheet, Text, View } from 'react-native';
 
 // import { MEALS } from '../data/dummy-data';
-import { StyleSheet, Text, View } from 'react-native';
-import { type NativeStackParamList } from '../MealsApp';
+import { type Route } from '../enums/Route';
+import { type RouteType } from '../navigation/NativeStackParamList';
 
 interface IMealsOverviewScreenProps {
-  route: RouteProp<NativeStackParamList, 'MealsOverview'>;
+  route: RouteType<Route.MealsOverview>;
 }
 
 export default function MealsOverviewScreen({
