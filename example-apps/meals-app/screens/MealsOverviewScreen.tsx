@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  type ListRenderItemInfo,
+  StyleSheet,
+  View,
+} from 'react-native';
 
+import MealItem from '../components/MealItem';
 import { MEALS } from '../data/dummy-data';
 import { type Route } from '../enums/Route';
+import type Meal from '../models/meal';
 import { type RouteType } from '../navigation/NativeStackParamList';
 
 interface IMealsOverviewScreenProps {
@@ -14,9 +21,21 @@ export default function MealsOverviewScreen({
 }: IMealsOverviewScreenProps): JSX.Element {
   const catId = route.params.categoryId;
 
+  const displayedMeals = MEALS.filter((mealItem) => {
+    return mealItem.categoryIds.includes(catId);
+  });
+
+  function renderMealItem(itemData: ListRenderItemInfo<Meal>): JSX.Element {
+    return <MealItem title={itemData.item.title} />;
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Meals Overview Screen - {catId}</Text>
+      <FlatList
+        data={displayedMeals}
+        keyExtractor={(item) => item.id}
+        renderItem={renderMealItem}
+      />
     </View>
   );
 }
