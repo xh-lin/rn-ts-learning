@@ -1,7 +1,8 @@
 import React from 'react';
+import { Text, View } from 'react-native';
+
 import GoalsApp from './example-apps/goals-app/GoalsApp';
 import MealsApp from './example-apps/meals-app/MealsApp';
-import { Text, View } from 'react-native';
 
 export default function App(): JSX.Element {
   const app: number = 2;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { FlatList, type ListRenderItemInfo } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
-import type Category from '../models/category';
 import CategoryGridTile from '../components/CategoryGridTile';
+import { CATEGORIES } from '../data/dummy-data';
 import { Route } from '../enums/Route';
+import type Category from '../models/category';
 import { type NavigationType } from '../navigation/NativeStackParamList';
 
 interface ICategoriesScreenProps {

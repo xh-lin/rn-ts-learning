@@ -1,9 +1,9 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Button, FlatList, StyleSheet, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 
-import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
+import GoalItem from './components/GoalItem';
 
 interface IGoal {
   id: string;

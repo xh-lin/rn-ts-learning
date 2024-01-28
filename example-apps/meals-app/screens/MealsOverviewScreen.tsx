@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-// import { MEALS } from '../data/dummy-data';
+import { MEALS } from '../data/dummy-data';
 import { type Route } from '../enums/Route';
 import { type RouteType } from '../navigation/NativeStackParamList';
 
