@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 interface ICategoryGridTileProp {
   title: string;
@@ -12,7 +12,13 @@ export default function CategoryGridTile({
 }: ICategoryGridTileProp): JSX.Element {
   return (
     <View style={styles.gridItem}>
-      <Pressable android_ripple={{ color: '#ccc' }} style={styles.button}>
+      <Pressable
+        android_ripple={{ color: '#ccc' }}
+        style={({ pressed }) => [
+          styles.button,
+          pressed ? styles.buttonPressed : null,
+        ]}
+      >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
@@ -32,10 +38,14 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
-    overflow: 'hidden',
+    overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
   },
   button: {
     flex: 1,
+  },
+  // for iOS
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     flex: 1,
