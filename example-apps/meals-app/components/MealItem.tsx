@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Image,
@@ -8,7 +9,11 @@ import {
   View,
 } from 'react-native';
 
+import { Route } from '../enums/Route';
+import { type NavigationType } from '../navigation/NativeStackParamList';
+
 interface IMealItemProps {
+  id: string;
   title: string;
   imageUrl: string;
   duration: string;
@@ -17,17 +22,27 @@ interface IMealItemProps {
 }
 
 export default function MealItem({
+  id,
   title,
   imageUrl,
   duration,
   complexity,
   affordability,
 }: IMealItemProps): JSX.Element {
+  const navigation = useNavigation<NavigationType<any>>();
+
+  function selectMealItemHandler(): void {
+    navigation.navigate(Route.MealDetail, {
+      mealId: id,
+    });
+  }
+
   return (
     <View style={styles.mealItem}>
       <Pressable
         android_ripple={{ color: '#ccc' }}
         style={({ pressed }) => [pressed ? styles.buttonPressed : null]}
+        onPress={selectMealItemHandler}
       >
         <View style={styles.innerContainer}>
           <View>

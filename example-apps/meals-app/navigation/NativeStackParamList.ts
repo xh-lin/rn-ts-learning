@@ -6,6 +6,7 @@ import { type Route } from '../enums/Route';
 export default interface NativeStackParamList extends ParamListBase {
   [Route.MealsCategories]: undefined;
   [Route.MealsOverview]: { categoryId: string };
+  [Route.MealDetail]: { mealId: string };
 }
 
 export type NavigationType<T extends keyof NativeStackParamList> =

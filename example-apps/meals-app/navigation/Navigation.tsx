@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Route } from '../enums/Route';
 import CategoriesScreen from '../screens/CategoriesScreen';
+import MealDetailScreen from '../screens/MealDetailScreen';
 import MealsOverviewScreen from '../screens/MealsOverviewScreen';
 import type NativeStackParamList from './NativeStackParamList';
 
@@ -36,6 +37,7 @@ export default function Navigation(): JSX.Element {
           //   };
           // }}
         />
+        <Stack.Screen name={Route.MealDetail} component={MealDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
