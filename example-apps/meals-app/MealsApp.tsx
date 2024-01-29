@@ -7,7 +7,7 @@ import Navigation from './navigation/Navigation';
 export default function MealsApp(): JSX.Element {
   return (
     <View style={styles.appContainer}>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <Navigation />
     </View>
   );

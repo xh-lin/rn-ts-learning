@@ -29,6 +29,12 @@ export default function Navigation(): JSX.Element {
         <Stack.Screen
           name={Route.MealsOverview}
           component={MealsOverviewScreen}
+          // options={({ route, navigation }) => {
+          //   const catId = route.params.categoryId;
+          //   return {
+          //     title: catId,
+          //   };
+          // }}
         />
       </Stack.Navigator>
     </NavigationContainer>

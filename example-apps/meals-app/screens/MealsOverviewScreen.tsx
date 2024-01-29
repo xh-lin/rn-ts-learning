@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import {
   FlatList,
   type ListRenderItemInfo,
@@ -7,23 +7,34 @@ import {
 } from 'react-native';
 
 import MealItem from '../components/MealItem';
-import { MEALS } from '../data/dummy-data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 import { type Route } from '../enums/Route';
 import type Meal from '../models/meal';
-import { type RouteType } from '../navigation/NativeStackParamList';
+import {
+  type NavigationType,
+  type RouteType,
+} from '../navigation/NativeStackParamList';
 
 interface IMealsOverviewScreenProps {
   route: RouteType<Route.MealsOverview>;
+  navigation: NavigationType<Route.MealsOverview>;
 }
 
 export default function MealsOverviewScreen({
   route,
+  navigation,
 }: IMealsOverviewScreenProps): JSX.Element {
   const catId = route.params.categoryId;
 
   const displayedMeals = MEALS.filter((mealItem) => {
     return mealItem.categoryIds.includes(catId);
   });
+
+  useLayoutEffect(() => {
+    const category = CATEGORIES.find((category) => category.id === catId);
+
+    navigation.setOptions({ title: category?.title });
+  }, [catId, navigation]);
 
   function renderMealItem(itemData: ListRenderItemInfo<Meal>): JSX.Element {
     const item = itemData.item;
