@@ -1,7 +1,14 @@
 {
   "singleQuote": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrder": [
+    "^react-native-gesture-handler$",
+    "<THIRD_PARTY_MODULES>",
+    "^@core/(.*)$",
+    "^@server/(.*)$",
+    "^@ui/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
