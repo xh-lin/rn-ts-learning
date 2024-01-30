@@ -37,7 +37,15 @@ export default function Navigation(): JSX.Element {
           //   };
           // }}
         />
-        <Stack.Screen name={Route.MealDetail} component={MealDetailScreen} />
+        <Stack.Screen
+          name={Route.MealDetail}
+          component={MealDetailScreen}
+          // options={{
+          //   headerRight: () => {
+          //     return <Text>In the header</Text>;
+          //   },
+          // }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
